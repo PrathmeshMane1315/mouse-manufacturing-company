@@ -323,21 +323,38 @@ button {
   margin: 0 auto 1.5rem auto; /* Button se spacing ke liye */
 }
 
-/* 📱 MOBILE RESPONSIVE FIX */
+//* 📱 MOBILE RESPONSIVE FIX */
 @media (max-width: 768px) {
-  .parallax-promo {
-    background-attachment: scroll; 
-    height: auto; /* Height auto ki taaki content ke hisab se set ho */
-    padding: 6rem 1rem; /* Upar niche extra space diya */
+  .hero-title {
+    font-size: clamp(2.3rem, 10vw, 4rem) !important;
+    line-height: 1.1 !important;
+  }
+  .no-break {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+  .features-grid {
+    grid-template-columns: 1fr; 
+  }
+  .feature-card {
+    padding: 2rem;
+  }
+  .features-header {
+    margin-bottom: 3rem;
   }
   
-  .promo-content h2 {
-    font-size: 2.2rem; /* Mobile par text thoda chota kiya taaki fit aaye */
+  /* 🎯 BUTTON FIX FOR MOBILE */
+  button {
+    padding: 0.8rem 1.4rem !important; /* Padding kam karke button ko chota kiya */
+    font-size: 0.9rem !important;     /* Font size thoda reduce kiya */
+    width: 100%;                      /* Ek button poori width lega */
+    max-width: 250px;                 /* Par bohot zyada lamba nahi hoga */
   }
   
-  .promo-content p {
-    font-size: 1rem;
+  .hero-cta {
+    flex-direction: column;           /* Buttons ko upar-neeche stack karega */
+    align-items: flex-start;          /* Left side align karega */
+    gap: 0.8rem;                      /* Dono buttons ke beech ka gap kam kiya */
   }
 }
-
 
