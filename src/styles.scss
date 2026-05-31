@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+}
+
+/* Lenis Smooth Scroll Required CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Global Premium Buttons */
+.btn-primary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform var(--transition-smooth);
+  &:hover { transform: scale(1.05); }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-smooth);
+  &:hover {
+    border-color: var(--color-electric-blue);
+    box-shadow: 0 0 20px var(--color-blue-glow);
+  }
+}
+
+
+/* Lenis Scroll Touch Fix */
+html, body {
+  overscroll-behavior: none;
+  touch-action: pan-y;
+}
+
+
+/* --- LENIS SMOOTH SCROLL GLOBAL CSS --- */
+html.lenis, html.lenis body {
+  height: auto;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

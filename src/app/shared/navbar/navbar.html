@@ -1,0 +1,40 @@
+<header class="premium-navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732228.png" alt="Aura Logo" class="logo-img">
+      <span class="logo-text">AURA</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <!-- <a routerLink="/products/gaming-mouse" routerLinkActive="active">Products</a> -->
+      <a routerLink="/about" routerLinkActive="active">About Us</a>
+      <a routerLink="/blogs" routerLinkActive="active">Blogs</a>
+      <a routerLink="/careers" routerLinkActive="active">Careers</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="pre-order-btn">Pre-Order</button>
+      
+      <button class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" [class.open]="isMenuOpen">
+  <nav class="mobile-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+    <a routerLink="/products/gaming-mouse" routerLinkActive="active" (click)="closeMenu()">Products</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About Us</a>
+    <a routerLink="/blogs" routerLinkActive="active" (click)="closeMenu()">Blogs</a>
+    <a routerLink="/careers" routerLinkActive="active" (click)="closeMenu()">Careers</a>
+    
+    <button class="mobile-pre-order" (click)="closeMenu()">Pre-Order Now</button>
+  </nav>
+</div>

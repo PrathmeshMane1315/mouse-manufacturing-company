@@ -1,0 +1,97 @@
+.about-container {
+  background-color: #050505; /* Deep dark background */
+  color: #ffffff;
+  overflow: hidden; /* Prevent horizontal scroll bar during animations */
+}
+
+/* --- Hero Section (Image + Gradient) --- */
+/* --- Hero Section (Image + Gradient Fix) --- */
+.about-hero {
+  position: relative;
+  min-height: 80vh; /* Thoda aur bada kiya premium look ke liye */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 70px; 
+  
+  /* Image aur gradient properties ko alag-alag likha hai */
+  background-image: linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,1) 100%), 
+                    url('https://images.unsplash.com/photo-1627745214193-2bcefc681524?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Reliable dark tech image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; (Agar mobile par glitch kare toh isko hata dena) */
+
+  .hero-content {
+    z-index: 2;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+    color: #ffffff; /* Text color explicitly safed (white) rakha hai */
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #00d2ff; 
+    font-weight: 500;
+  }
+}
+
+/* --- Content Typography & Layout --- */
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem; /* Blocks ke beech bohot space */
+}
+
+.content-block {
+  max-width: 700px;
+
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    letter-spacing: -1px;
+
+    /* Cyan Underline Decoration */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #00d2ff;
+    }
+  }
+
+  p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #a0a0a0;
+  }
+}
+
+/* Zig-zag Layout (Desktop only) */
+@media (min-width: 769px) {
+  .block-left { margin-right: auto; }
+  .block-right { margin-left: auto; text-align: right; }
+  .block-right h2::after { left: auto; right: 0; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .about-content { gap: 5rem; padding: 4rem 5%; }
+  .content-block h2 { font-size: 2rem; }
+  .content-block p { font-size: 1rem; }
+}

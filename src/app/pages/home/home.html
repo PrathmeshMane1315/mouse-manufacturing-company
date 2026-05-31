@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<app-mouse-viewer></app-mouse-viewer>
+    
+<main class="home-container">
+  <div class="cursor-glow" #cursorGlow></div>
+  <div class="ambient-background"></div>
+  <div class="particles-container" #particlesContainer></div>
+
+  <section class="hero" #heroSection>
+    <div class="hero-content">
+      <h1 class="hero-title" #heroTitle>
+        <div class="reveal-wrapper"><div class="reveal-text" #reveal1>Beyond</div></div>
+        <div class="reveal-wrapper"><div class="reveal-text no-break" #reveal2>Precision.</div></div>
+      </h1>
+      <div class="reveal-wrapper">
+        <p class="hero-subtitle" #reveal3>Experience the next generation of competitive gaming and ergonomic excellence.</p>
+      </div>
+      <div class="reveal-wrapper">
+        <div class="hero-cta" #reveal4>
+          <button class="btn-primary">Explore Products</button>
+          <button class="btn-secondary">Watch Video</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="features-header">
+      <h2 class="section-title">Engineered for <span class="highlight">Domination.</span></h2>
+      <p class="section-subtitle">Every detail meticulously crafted for esports professionals.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" tabindex="0">
+        <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/3067/3067301.png" alt="Sensor"></div>
+        <h3>30K DPI Optical Sensor</h3>
+        <p>Flawless tracking on any surface, including glass. Zero smoothing, zero acceleration.</p>
+      </div>
+
+      <div class="feature-card" tabindex="0">
+        <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/2850/2850315.png" alt="Wireless"></div>
+        <h3>Quantum Wireless</h3>
+        <p>Sub-1ms latency. Outperforms wired connections with adaptive frequency agility.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-icon" tabindex="0"><img src="https://cdn-icons-png.flaticon.com/512/888/888051.png" alt="Switches"></div>
+        <h3>Optical Switches Gen-3</h3>
+        <p>0.2ms actuation with zero debounce delay. Rated for 90 million clicks.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-icon" tabindex="0"><img src="https://cdn-icons-png.flaticon.com/512/792/792113.png" alt="Battery"></div>
+        <h3>90-Hour Battery Life</h3>
+        <p>Play uninterrupted for weeks. Fast charging via Type-C gives 10 hours in 15 minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="parallax-promo">
+    <div class="promo-overlay"></div>
+    <div class="promo-content">
+      <h2>Victory is Measured in <br> <span class="text-glow">Milliseconds.</span></h2>
+      <p>Join the elite tier of esports professionals. Equip yourself with the ultimate weapon today.</p>
+      <button class="btn-primary" style="margin-top: 1.5rem;" routerLink="/pre-order">Pre-Order Now</button>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</main>
