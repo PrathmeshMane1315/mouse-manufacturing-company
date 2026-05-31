@@ -80,16 +80,3 @@ html.lenis, html.lenis body {
     box-shadow: 0 0 20px var(--color-blue-glow);
   }
 }
-
-
-/* --- MOBILE RESPONSIVE FIX FOR BUTTONS --- */
-@media (max-width: 768px) {
-  .btn-primary, .btn-secondary {
-    padding: 0.7rem 1.2rem; /* Padding kam kar di */
-    font-size: 0.85rem;     /* Text thoda chota aur sharp kar diya */
-    width: auto;            /* Agar 100% width le raha ho toh usko auto karega */
-  }
-
-  /* Agar dono buttons ke beech ki gap zyada lag rahi ho, 
-     toh apne hero container mein (jisme ye dono buttons hain) gap kam kar dena. */
-}
