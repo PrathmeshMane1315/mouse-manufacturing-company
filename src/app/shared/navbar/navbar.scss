@@ -118,24 +118,33 @@
   display: none;
   flex-direction: column;
   gap: 6px;
-  background: none;
+  background: transparent !important; /* Button ka background clear kiya */
   border: none;
   cursor: pointer;
-  z-index: 1001; /* Menu ke upar rahega */
+  z-index: 1001; 
   padding: 5px;
 
   .bar {
     width: 26px;
-    height: 2px;
-    background-color: #ffffff;
+    height: 3px; /* Thoda mota kar diya taaki aur clearly dikhe */
+    background-color: #00d2ff !important; /* YAHAN FIX HAI: White color force kiya */
     transition: all 0.3s ease;
     border-radius: 2px;
   }
 
+  /* Jab menu open hoga toh ye Cross (X) ban jayega aur Cyan color ka ho jayega */
   &.active {
-    .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #00d2ff; }
-    .bar:nth-child(2) { opacity: 0; }
-    .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #00d2ff; }
+    .bar:nth-child(1) { 
+      transform: translateY(9px) rotate(45deg); 
+      background-color: #00d2ff !important; 
+    }
+    .bar:nth-child(2) { 
+      opacity: 0; 
+    }
+    .bar:nth-child(3) { 
+      transform: translateY(-9px) rotate(-45deg); 
+      background-color: #00d2ff !important; 
+    }
   }
 }
 
