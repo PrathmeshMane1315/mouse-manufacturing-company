@@ -6,24 +6,45 @@
   box-sizing: border-box;
 }
 
+/* --- MOBILE SCROLL FIX (Bulletproof) --- */
+html, body {
+  width: 100%; /* 100vw ki jagah 100% use kiya taaki side-scroll block na ho */
+  overflow-x: hidden;
+  overflow-y: auto !important; /* Force vertical scroll */
+  touch-action: pan-y; /* Sirf upar-niche swipe allow karega */
+  -webkit-overflow-scrolling: touch; /* Apple/Safari smooth scroll support */
+  overscroll-behavior: none; /* Bouncing animation disable karta hai */
+}
+
 body {
   font-family: var(--font-primary);
   background-color: var(--color-black);
   color: var(--color-white);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  
 }
 
-/* Lenis Smooth Scroll Required CSS */
+/* --- LENIS SMOOTH SCROLL GLOBAL CSS --- */
 html.lenis, html.lenis body {
   height: auto;
 }
+
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
 
-/* Global Premium Buttons */
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden !important; /* Jab menu khulega toh page freeze karne ke liye */
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* --- GLOBAL PREMIUM BUTTONS --- */
 .btn-primary {
   background: var(--color-white);
   color: var(--color-black);
@@ -34,7 +55,10 @@ html.lenis, html.lenis body {
   border-radius: 2rem;
   cursor: pointer;
   transition: transform var(--transition-smooth);
-  &:hover { transform: scale(1.05); }
+  
+  &:hover { 
+    transform: scale(1.05); 
+  }
 }
 
 .btn-secondary {
@@ -50,39 +74,9 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.5rem;
   transition: all var(--transition-smooth);
+  
   &:hover {
     border-color: var(--color-electric-blue);
     box-shadow: 0 0 20px var(--color-blue-glow);
   }
-}
-
-
-/* Lenis Scroll Touch Fix */
-html, body {
-  overscroll-behavior: none;
-  touch-action: pan-y;
-}
-
-
-/* --- LENIS SMOOTH SCROLL GLOBAL CSS --- */
-html.lenis, html.lenis body {
-  height: auto;
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }
