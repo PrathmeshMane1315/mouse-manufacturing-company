@@ -1,3 +1,11 @@
+/* --- ANGULAR HOST FIX FOR LENIS (NO STUTTER) --- */
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  contain: content; /* Ye browser ko batata hai ki iske andar ka content bahar leak nahi hoga, scroll fast karta hai */
+}
+
 /* --- BASE WRAPPER --- */
 .blogs-wrapper {
   position: relative;

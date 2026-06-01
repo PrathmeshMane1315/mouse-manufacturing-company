@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { NavbarComponent } from '../../shared/navbar/navbar';
 import { Footer } from '../../shared/footer/footer';
@@ -14,13 +14,16 @@ import Lenis from '@studio-freight/lenis';
 })
 export class BlogsComponent implements AfterViewInit, OnDestroy {
   private lenis: any;
+  private rafId: any;
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private ngZone: NgZone
-  ) {}
+  // ✅ MODERN ANGULAR APPROACH: Bina @Inject decorator ke direct inject kiya
+  private platformId = inject(PLATFORM_ID);
+  private ngZone = inject(NgZone);
+
+  constructor() {}
 
   ngAfterViewInit(): void {
+    // Check if running in browser (taaki server-side rendering me error na aaye)
     if (isPlatformBrowser(this.platformId)) {
       this.ngZone.runOutsideAngular(() => {
         
@@ -32,9 +35,9 @@ export class BlogsComponent implements AfterViewInit, OnDestroy {
 
         const raf = (time: number) => {
           this.lenis.raf(time);
-          requestAnimationFrame(raf);
+          this.rafId = requestAnimationFrame(raf); 
         };
-        requestAnimationFrame(raf);
+        this.rafId = requestAnimationFrame(raf); 
         
       });
     }
@@ -43,6 +46,10 @@ export class BlogsComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.lenis) {
       this.lenis.destroy();
+    }
+    // Background animation loop ko kill kiya
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
     }
   }
 }
